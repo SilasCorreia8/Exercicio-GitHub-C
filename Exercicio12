@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char frase[100];  // Array para armazenar a frase
+    char palavra[20]; // Array para armazenar cada palavra
+    int i, j = 0;
+
+    printf("Digite uma frase: ");
+    fgets(frase, 100, stdin);
+
+    // Percorrendo a frase caractere por caractere
+    for (i = 0; frase[i] != '\0'; i++) {
+        // Se encontrar um espaço ou o final da string, imprime a palavra
+        if (frase[i] == ' ' || frase[i] == '\n') {
+            palavra[j] = '\0'; // Adiciona o caractere nulo para marcar o final da palavra
+            printf("%s\n", palavra);
+            j = 0; // Reinicia o índice para a próxima palavra
+        } else {
+            palavra[j++] = frase[i]; // Adiciona o caractere à palavra
+        }
+    }
+
+    return 0;
+}
