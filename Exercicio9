@@ -1,0 +1,36 @@
+/*
+9.Fazer um programa em "C" que lê 10 valores e imprime o maior e o menor valores
+lidos.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+    
+    int num, maior, menor;
+    
+    maior = menor;
+    menor = maior;
+    
+    for(int i=1; i<=10; i++) {
+        
+        printf("Digite o %d ",i);
+        scanf("%d",&num);
+        
+        if (num > maior) {
+            maior = num;
+        }
+        
+        if (num <= menor) {
+            menor = num;
+        }
+     
+        printf("%d",menor);
+        
+    }
+    
+    printf("O maior número digitado foi %d",maior);
+    printf("\nO menor número digitado foi %d",menor);
+    
+}
