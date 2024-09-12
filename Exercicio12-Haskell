@@ -1,0 +1,18 @@
+main = do
+    putStrLn "Digite o número de identificação: "
+    id <- readLn
+    putStrLn "Digite as 3 notas (separadas por espaço): "
+    [n1, n2, n3] <- map read . words <$> getLine
+    putStrLn "Digite a média dos exercícios: "
+    me <- readLn
+
+    let media = (n1 + n2 * 2 + n3 * 3 + me) / 7
+        conceito = if media >= 9 then 'A'
+                  else if media >= 7.5 then 'B'
+                  else if media >= 6 then 'C'
+                  else if media >= 4 then 'D'
+                  else 'E'
+        resultado = if conceito `elem` ['A', 'B', 'C'] then "Aprovado" else "Reprovado"
+
+    putStrLn $ "Número de identificação: " ++ show id ++
+              "\nConceito: " ++ [conceito] ++ ", Resultado: " ++ resultado
