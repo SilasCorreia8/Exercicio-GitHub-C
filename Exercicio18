@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    int num, i, ehPrimo = 1; // Inicializa a flag "ehPrimo" como verdadeira
+
+    printf("Digite um número inteiro: ");
+    scanf("%d", &num);
+
+    // Números menores que 2 não são primos
+    if (num <= 1) {
+        ehPrimo = 0;
+    } else {
+        // Verifica a divisibilidade por todos os números de 2 até a raiz quadrada de num
+        for (i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                ehPrimo = 0;
+                break; // Se encontrar um divisor, não precisa continuar
+            }
+        }
+    }
+
+    if (ehPrimo) {
+        printf("%d é um número primo.\n", num);
+    } else {
+        printf("%d não é um número primo.\n", num);
+    }
+
+    return 0;
+}
