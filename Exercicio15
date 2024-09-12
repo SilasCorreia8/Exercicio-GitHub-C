@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    float horasTrabalhadas, valorHora, salarioBase, bonus, salarioFinal;
+
+    // Solicita as informações ao usuário
+    printf("Digite o número de horas trabalhadas na semana: ");
+    scanf("%f", &horasTrabalhadas);
+
+    printf("Digite o valor da hora trabalhada: R$ ");
+    scanf("%f", &valorHora);
+
+    // Calcula o salário base (até 40 horas)
+    if (horasTrabalhadas <= 40) {
+        salarioBase = horasTrabalhadas * valorHora;
+        bonus = 0;
+    } else if (horasTrabalhadas <= 60) {
+        salarioBase = 40 * valorHora;
+        bonus = (horasTrabalhadas - 40) * valorHora * 1.5;
+    } else {
+        salarioBase = 40 * valorHora + 20 * valorHora * 1.5;
+        bonus = (horasTrabalhadas - 60) * valorHora * 2;
+    }
+
+    // Calcula o salário final
+    salarioFinal = salarioBase + bonus;
+
+    // Imprime o resultado
+    printf("O salário final é: R$ %.2f\n", salarioFinal);
+
+    return 0;
+}
