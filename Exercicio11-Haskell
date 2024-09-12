@@ -1,0 +1,20 @@
+import Text.Printf
+
+main :: IO ()
+main = do
+  putStrLn "Digite o preço normal do produto:"
+  precoStr <- getLine
+  let preco = read precoStr :: Double
+
+  putStrLn "Digite o código da condição de pagamento (1-4):"
+  codigoStr <- getLine
+  let codigo = read codigoStr :: Int
+
+  let valorAPagar = case codigo of
+                    1 -> preco * 0.9
+                    2 -> preco * 0.85
+                    3 -> preco
+                    4 -> preco * 1.1
+                    _ -> error "Código de pagamento inválido"
+
+  putStrLn $ printf "O valor a ser pago é: R$ %.2f" valorAPagar
