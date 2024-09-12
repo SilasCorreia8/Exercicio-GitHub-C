@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int situacao_aluno(float media, int faltas, int total_horas) {
+    // Calcula a frequência do aluno
+    float frequencia = (float)(total_horas - faltas) / total_horas * 100;
+
+    // Verifica se o aluno atende aos critérios de aprovação
+    if (media >= 70 && frequencia >= 75) {
+        return 1; // Aprovado
+    } else {
+        return 0; // Reprovado
+    }
+}
+
+int main() {
+    float media;
+    int faltas, total_horas, resultado;
+
+    printf("Digite a média final do aluno: ");
+    scanf("%f", &media);
+
+    printf("Digite o número de faltas do aluno: ");
+    scanf("%d", &faltas);
+
+    printf("Digite a quantidade total de horas aula no semestre: ");
+    scanf("%d", &total_horas);
+
+    resultado = situacao_aluno(media, faltas, total_horas);
+
+    if (resultado == 1) {
+        printf("O aluno foi aprovado.\n");
+    } else {
+        printf("O aluno foi reprovado.\n");
+    }
+
+    return 0;
+}
