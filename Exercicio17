@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int numero, parte1, parte2, soma, quadrado;
+
+    printf("Números com a característica do 3025:\n");
+
+    for (numero = 1000; numero <= 9999; numero++) {
+        parte1 = numero / 100;  // Obtém os dois primeiros dígitos
+        parte2 = numero % 100;  // Obtém os dois últimos dígitos
+        soma = parte1 + parte2;
+        quadrado = soma * soma;
+
+        if (quadrado == numero) {
+            printf("%d\n", numero);
+        }
+    }
+
+    return 0;
+}
